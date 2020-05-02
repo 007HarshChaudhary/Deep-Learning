@@ -73,20 +73,14 @@ if train_on_gpu:
 
 import torch.optim as optim
 
-
 criterion = nn.CrossEntropyLoss()
-
-
 optimizer = optim.Adam(model.parameters(), lr=0.001)
-# Upsample the image-tensor
 m = nn.Upsample(scale_factor=8)
-
 
 n_epochs = 30
 train_losses=[]
 validation_losses=[]
 valid_loss_min = np.Inf # track change in validation loss
-start = time.time()
 for epoch in range(1, n_epochs+1):
     
     # keep track of training and validation loss
